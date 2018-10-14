@@ -51,11 +51,16 @@ class _MyHomePageState extends State<MyHomePage> {
         child: new Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-              style: TextStyle(
-                fontWeight: FontWeight.w400
-              )
+            Container(
+              child: Text(
+                'You have pushed the button this many times:',
+                style: TextStyle(
+                  color: Colors.blue,
+                  fontStyle: FontStyle.italic,
+                  fontSize: 18.0,
+                )
+              ),
+              padding: EdgeInsets.all(42.0)
             ),
             Container(
               padding: EdgeInsets.only(left: 42.0, right: 42.0, top: 20.0, bottom: 20.0),
