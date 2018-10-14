@@ -10,6 +10,14 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: new ThemeData(
         primarySwatch: Colors.grey,
+        primaryTextTheme: TextTheme(
+          title: TextStyle(
+            color: Colors.white
+          ),
+        ),
+        canvasColor: Colors.brown[100],
+        brightness: Brightness.dark,
+        primaryColor: Colors.purple,
       ),
       home: new MyHomePage(
         title: 'Flutter Demo Home Page',
@@ -50,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text(
                 'You have pushed the button this many times:',
                 style: TextStyle(
-                  color: Colors.blue,
+                  color: Colors.grey[700],
                   fontStyle: FontStyle.italic,
                   fontSize: 18.0,
                 )
@@ -66,7 +74,10 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               child: Text(
                 '$_counter',
-                style: Theme.of(context).textTheme.display1
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 27.0
+                )
               )
             )
           ],
@@ -74,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton:Theme(
         data: new ThemeData(
-          accentColor: Colors.red,
+          accentColor: Theme.of(context).primaryColor
         ),
         child: new FloatingActionButton(
           onPressed: () => _incrementCounter(),
