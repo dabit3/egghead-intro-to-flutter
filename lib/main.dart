@@ -50,10 +50,18 @@ class _MyHomePageState extends State<MyHomePage> {
         
         title: new Text(widget.title),
       ),
-      body: new Center(
+      body: new SingleChildScrollView(
         child: new Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            // Image.network(
+            //   'https://pbs.twimg.com/profile_images/981977686678622208/bKQTdDgx_400x400.jpg',
+            // ),
+            Image.asset(
+              'nader.jpg',
+              width: 600.0,
+              height: 240.0,
+            ),
             Container(
               child: Text(
                 'You have pushed the button this many times:',
