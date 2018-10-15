@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
-void main() => runApp(new MyApp());
+void main(){
+  // debugPaintSizeEnabled=true;
+  runApp(new MyApp());
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -10,12 +14,6 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: new ThemeData(
         primarySwatch: Colors.grey,
-        primaryTextTheme: TextTheme(
-          title: TextStyle(
-            color: Colors.white
-          ),
-        ),
-        canvasColor: Colors.brown[100],
         brightness: Brightness.dark,
         primaryColor: Colors.purple,
       ),
@@ -47,49 +45,71 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        
         title: new Text(widget.title),
       ),
       body: new SingleChildScrollView(
-        child: new Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            // Image.network(
-            //   'https://pbs.twimg.com/profile_images/981977686678622208/bKQTdDgx_400x400.jpg',
-            // ),
-            Image.asset(
-              'nader.jpg',
-              width: 600.0,
-              height: 240.0,
-            ),
-            Container(
-              child: Text(
-                'You have pushed the button this many times:',
-                style: TextStyle(
-                  color: Colors.grey[700],
-                  fontStyle: FontStyle.italic,
-                  fontSize: 18.0,
+        child: Align(
+          alignment: Alignment.centerLeft,
+          child: Padding(
+            padding: EdgeInsets.all(20.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  width: 175.0,
+                  height: 175.0,
+                  decoration: new BoxDecoration(
+                    image: new DecorationImage(
+                      image: AssetImage('nader.jpg'),
+                    ),
+                    borderRadius: new BorderRadius.all(new Radius.circular(112.50)),
+                  ),
+                ),
+                Text(
+                  'Nader Dabit',
+                  style: Theme.of(context).textTheme.display2
+                ),
+                Text(
+                  'Developer Advocate, AWS',
+                  style: Theme.of(context).textTheme.title
+                ),
+                Text(
+                  'Seattle, WA',
+                  style: TextStyle(
+                    color: Colors.grey[100],
+                  )
+                ),
+                Container(
+                  padding: EdgeInsets.all(10.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: <Widget>[
+                      Icon(Icons.email),
+                      Icon(Icons.donut_large),
+                      Icon(Icons.phone),
+                      Icon(Icons.web)
+                    ],
+                  )
+                ),
+                Text(
+                  'Biography',
+                  style: Theme.of(context).textTheme.title
+                ),
+                Container(
+                  padding: EdgeInsets.only(top: 10.0),
+                  child: Text(
+                    'From Mississippi, specializing in cross-platform application development',
+                    style: TextStyle(
+                      color: Colors.grey[400],
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.w700
+                    )
+                  ),
                 )
-              ),
-              padding: EdgeInsets.all(42.0)
-            ),
-            Container(
-              padding: EdgeInsets.only(left: 42.0, right: 42.0, top: 20.0, bottom: 20.0),
-              margin: EdgeInsets.all(32.0),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(60.0),
-                color: Colors.grey[300]
-              ),
-              child: Text(
-                '$_counter',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 27.0
-                )
-              )
+              ]
             )
-          ],
-        ),
+          )
+        )
       ),
       floatingActionButton:Theme(
         data: new ThemeData(
